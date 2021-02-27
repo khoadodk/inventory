@@ -10,6 +10,10 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">
                                             Login
+                                            <p>
+                                                email: admin@gmail.com,
+                                                password: admin
+                                            </p>
                                         </h1>
                                     </div>
                                     <form class="user" @submit.prevent="login">
@@ -22,6 +26,11 @@
                                                 placeholder="Enter Email Address"
                                                 v-model="form.email"
                                             />
+                                            <small
+                                                class="text-danger"
+                                                v-if="errors.email"
+                                                >{{ errors.email[0] }}</small
+                                            >
                                         </div>
                                         <div class="form-group">
                                             <input
@@ -31,6 +40,11 @@
                                                 placeholder="Password"
                                                 v-model="form.password"
                                             />
+                                            <small
+                                                class="text-danger"
+                                                v-if="errors.password"
+                                                >{{ errors.password[0] }}</small
+                                            >
                                         </div>
                                         <div class="form-group">
                                             <div
@@ -90,15 +104,35 @@ export default {
             form: {
                 email: null,
                 password: null
-            }
+            },
+            errors: {}
         };
+    },
+    // reroute user if loggedin
+    created() {
+        if (User.loggedIn()) {
+            this.$router.push({ name: "home" });
+        }
     },
     methods: {
         login() {
             axios
                 .post("/api/auth/login", this.form)
-                .then(res => User.responseAfterLogin(res))
-                .catch(error => console.log(error.response.data));
+                .then(res => {
+                    User.responseAfterLogin(res);
+                    Toast.fire({
+                        icon: "success",
+                        title: "Signed in successfully"
+                    });
+                    this.$router.push({ name: "home" });
+                })
+                .catch(error => {
+                    this.errors = error.response.data.errors;
+                    Toast.fire({
+                        icon: "warning",
+                        title: "Invalid Email or Password"
+                    });
+                });
         }
     }
 };

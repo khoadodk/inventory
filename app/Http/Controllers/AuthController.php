@@ -28,8 +28,13 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function login()
+    public function login(Request $request)
     {
+        $validateData = $request->validate([
+            'email'=> 'required',
+            'password'=>'required'
+        ]);
+
         $credentials = request(['email', 'password']);
 
         if (! $token = auth()->attempt($credentials)) {
@@ -49,7 +54,8 @@ class AuthController extends Controller
         $validateData = $request->validate([
             'email'=> 'required|unique:users|max:255',
             'name'=>'required',
-            'password'=>'required|min:6|confirmed'
+            'password'=>'required|min:6|confirmed',
+            'password_confirmation'=>'required|min:6|confirmed'
         ]);
 
         $data=array();
