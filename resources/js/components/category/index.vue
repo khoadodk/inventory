@@ -1,8 +1,8 @@
 <template>
     <div>
         <div class="row">
-            <router-link to="/add-employee" class="btn btn-primary"
-                >Add Employees
+            <router-link to="/add-category" class="btn btn-primary"
+                >Add A Category
             </router-link>
         </div>
         <br />
@@ -24,50 +24,36 @@
                         class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
                     >
                         <h6 class="m-0 font-weight-bold text-primary">
-                            Employee List
+                            Category List
                         </h6>
                     </div>
                     <div class="table-responsive">
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Photo</th>
-                                    <th>Address</th>
-                                    <th>Phone</th>
-                                    <th>Salary</th>
-                                    <th>Joining Date</th>
+                                    <th>Category Name</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr
-                                    v-for="employee in filtersearch"
-                                    :key="employee.id"
+                                    v-for="category in filtersearch"
+                                    :key="category.id"
                                 >
-                                    <td>{{ employee.name }}</td>
-                                    <td>
-                                        <img
-                                            :src="employee.photo"
-                                            id="em_photo"
-                                        />
-                                    </td>
-                                    <th>{{ employee.address }}</th>
-                                    <td>{{ employee.phone }}</td>
-                                    <td>{{ employee.salary }}</td>
-                                    <td>{{ employee.join_date }}</td>
+                                    <td>{{ category.name }}</td>
+
                                     <td>
                                         <router-link
                                             :to="{
-                                                name: 'edit-employee',
-                                                params: { id: employee.id }
+                                                name: 'edit-category',
+                                                params: { id: category.id }
                                             }"
                                             class="btn btn-sm btn-primary"
                                             >Edit</router-link
                                         >
 
                                         <a
-                                            @click="deleteEmployee(employee.id)"
+                                            @click="deleteCategory(category.id)"
                                             class="btn btn-sm btn-danger"
                                             ><font color="#ffffff"
                                                 >Delete</font
@@ -82,7 +68,6 @@
                 </div>
             </div>
         </div>
-        <!--Row-->
     </div>
 </template>
 
@@ -95,26 +80,26 @@ export default {
     },
     data() {
         return {
-            employees: [],
+            categories: [],
             searchTerm: ""
         };
     },
     computed: {
         filtersearch() {
-            return this.employees.filter(employee => {
-                return employee.name.match(this.searchTerm);
+            return this.categories.filter(category => {
+                return category.name.match(this.searchTerm);
             });
         }
     },
 
     methods: {
-        allEmployee() {
+        allCategory() {
             axios
-                .get("/api/employee/")
-                .then(({ data }) => (this.employees = data))
+                .get("/api/category/")
+                .then(({ data }) => (this.categories = data))
                 .catch();
         },
-        deleteEmployee(id) {
+        deleteCategory(id) {
             Swal.fire({
                 title: "Are you sure?",
                 text: "You won't be able to revert this!",
@@ -126,18 +111,16 @@ export default {
             }).then(result => {
                 if (result.value) {
                     axios
-                        .delete("/api/employee/" + id)
+                        .delete("/api/category/" + id)
                         .then(() => {
-                            this.employees = this.employees.filter(employee => {
-                                return employee.id != id;
-                            });
+                            this.categories = this.categories.filter(
+                                category => {
+                                    return category.id != id;
+                                }
+                            );
                         })
-                        .catch(err => {
-                            console.log(err.response.data.message);
-                            Toast.fire({
-                                icon: "warning",
-                                title: err.response.data.message
-                            });
+                        .catch(() => {
+                            this.$router.push({ name: "category" });
                         });
                     Swal.fire(
                         "Deleted!",
@@ -149,14 +132,7 @@ export default {
         }
     },
     created() {
-        this.allEmployee();
+        this.allCategory();
     }
 };
 </script>
-
-<style type="text/css">
-#em_photo {
-    height: 40px;
-    width: 40px;
-}
-</style>

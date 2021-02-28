@@ -8,10 +8,14 @@ let home = require("./components/home.vue").default;
 let addemployee = require("./components/employee/create.vue").default;
 let employee = require("./components/employee/index.vue").default;
 let editemployee = require("./components/employee/edit.vue").default;
-// Suppllier Components
+// Supplier Components
 let addsupplier = require("./components/supplier/create.vue").default;
 let supplier = require("./components/supplier/index.vue").default;
 let editsupplier = require("./components/supplier/edit.vue").default;
+// Category Components
+let addcategory = require("./components/category/create.vue").default;
+let category = require("./components/category/index.vue").default;
+let editcategory = require("./components/category/edit.vue").default;
 
 export const routes = [
     { path: "/", component: login, name: "/" },
@@ -50,5 +54,21 @@ export const routes = [
         path: "/edit-supplier/:id",
         component: editsupplier,
         name: "edit-supplier"
+    },
+    // Category Routes
+    {
+        path: "/add-category",
+        component: addcategory,
+        name: "add-category"
+    },
+    {
+        path: "/category",
+        component: category,
+        name: "category"
+    },
+    {
+        path: "/edit-category/:id",
+        component: editcategory,
+        name: "edit-category"
     }
 ];

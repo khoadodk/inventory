@@ -1,7 +1,7 @@
 <template>
     <div>
         <router-link to="/employee" class="btn btn-primary"
-            >All Employee
+            >All Employees
         </router-link>
         <div class="row justify-content-center">
             <div class="col-xl-10 col-lg-12 col-md-9">
@@ -12,7 +12,7 @@
                                 <div class="login-form">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">
-                                            Add employee
+                                            Add Employee
                                         </h1>
                                     </div>
                                     <form
