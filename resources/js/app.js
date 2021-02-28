@@ -11,9 +11,14 @@ import { routes } from "./routes";
 import User from "./helpers/User";
 window.User = User;
 
+// Noty plugin
+import Notification from "./helpers/Notification";
+window.Notification = Notification;
+
 // SweetAlert2 plugin
 import Swal from "sweetalert2";
 window.Swal = Swal;
+
 
 const Toast = Swal.mixin({
     toast: true,
@@ -34,5 +39,6 @@ const router = new VueRouter({
 });
 
 const app = new Vue({
+    el: '#app',
     router
-}).$mount("#app");
+});
