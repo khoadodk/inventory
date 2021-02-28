@@ -8,6 +8,10 @@ let home = require("./components/home.vue").default;
 let addemployee = require("./components/employee/create.vue").default;
 let employee = require("./components/employee/index.vue").default;
 let editemployee = require("./components/employee/edit.vue").default;
+// Suppllier Components
+let addsupplier = require("./components/supplier/create.vue").default;
+let supplier = require("./components/supplier/index.vue").default;
+let editsupplier = require("./components/supplier/edit.vue").default;
 
 export const routes = [
     { path: "/", component: login, name: "/" },
@@ -30,5 +34,21 @@ export const routes = [
         path: "/edit-employee/:id",
         component: editemployee,
         name: "edit-employee"
+    },
+    // Supplier Routes
+    {
+        path: "/add-supplier",
+        component: addsupplier,
+        name: "add-supplier"
+    },
+    {
+        path: "/supplier",
+        component: supplier,
+        name: "supplier"
+    },
+    {
+        path: "/edit-supplier/:id",
+        component: editsupplier,
+        name: "edit-supplier"
     }
 ];

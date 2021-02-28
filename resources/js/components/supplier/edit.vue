@@ -1,10 +1,13 @@
 <template>
     <div>
-        <router-link to="/supplier" class="btn btn-primary"
-            >All Suppliers
-        </router-link>
+        <div class="row">
+            <router-link to="/supplier" class="btn btn-primary"
+                >All Suppliers
+            </router-link>
+        </div>
+
         <div class="row justify-content-center">
-            <div class="col-xl-10 col-lg-12 col-md-9">
+            <div class="col-xl-12 col-lg-12 col-md-12">
                 <div class="card shadow-sm my-5">
                     <div class="card-body p-0">
                         <div class="row">
@@ -12,12 +15,13 @@
                                 <div class="login-form">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">
-                                            Add Suppliers
+                                            Supplier Update
                                         </h1>
                                     </div>
+
                                     <form
                                         class="user"
-                                        @submit.prevent="addSupplier"
+                                        @submit.prevent="supplierUpdate"
                                         enctype="multipart/form-data"
                                     >
                                         <div class="form-group">
@@ -27,17 +31,15 @@
                                                         type="text"
                                                         class="form-control"
                                                         id="exampleInputFirstName"
-                                                        placeholder="Enter Name"
+                                                        placeholder="Enter Full Name"
                                                         v-model="form.name"
                                                     />
                                                     <small
                                                         class="text-danger"
                                                         v-if="errors.name"
                                                     >
-                                                        {{
-                                                            errors.name[0]
-                                                        }}</small
-                                                    >
+                                                        {{ errors.name[0] }}
+                                                    </small>
                                                 </div>
 
                                                 <div class="col-md-6">
@@ -75,6 +77,27 @@
                                                         {{ errors.address[0] }}
                                                     </small>
                                                 </div>
+
+                                                <div class="col-md-6">
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="exampleInputFirstName"
+                                                        placeholder="Enter Shop Name"
+                                                        v-model="form.shopname"
+                                                    />
+                                                    <small
+                                                        class="text-danger"
+                                                        v-if="errors.shopname"
+                                                    >
+                                                        {{ errors.address[0] }}
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="form-row">
                                                 <div class="col-md-6">
                                                     <input
                                                         type="text"
@@ -90,26 +113,8 @@
                                                         {{ errors.phone[0] }}
                                                     </small>
                                                 </div>
-                                            </div>
-                                        </div>
 
-                                        <div class="form-group">
-                                            <div class="form-row">
-                                                <div class="col-md-6">
-                                                    <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        id="exampleInputFirstName"
-                                                        placeholder="Enter Shop Name"
-                                                        v-model="form.shopname"
-                                                    />
-                                                    <small
-                                                        class="text-danger"
-                                                        v-if="errors.shopname"
-                                                    >
-                                                        {{ errors.shopname[0] }}
-                                                    </small>
-                                                </div>
+                                                <div class="col-md-6"></div>
                                             </div>
                                         </div>
 
@@ -122,6 +127,7 @@
                                                         id="customFile"
                                                         @change="onFileSelected"
                                                     />
+
                                                     <small
                                                         class="text-danger"
                                                         v-if="errors.photo"
@@ -134,6 +140,7 @@
                                                         >Choose file</label
                                                     >
                                                 </div>
+
                                                 <div class="col-md-6">
                                                     <img
                                                         :src="form.photo"
@@ -142,15 +149,19 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="form-group">
                                             <button
                                                 type="submit"
                                                 class="btn btn-primary btn-block"
                                             >
-                                                Add
+                                                Update
                                             </button>
                                         </div>
                                     </form>
+                                    <hr />
+                                    <div class="text-center"></div>
+                                    <div class="text-center"></div>
                                 </div>
                             </div>
                         </div>
@@ -163,24 +174,34 @@
 
 <script type="text/javascript">
 export default {
-    data() {
-        return {
-            form: {
-                name: null,
-                email: null,
-                phone: null,
-                address: null,
-                photo: null,
-                shopname: null
-            },
-            errors: {}
-        };
-    },
     created() {
         if (!User.loggedIn()) {
             this.$router.push({ name: "/" });
         }
     },
+
+    data() {
+        return {
+            form: {
+                name: "",
+                email: "",
+                phone: "",
+                address: "",
+                photo: "",
+                newphoto: "",
+                shopname: ""
+            },
+            errors: {}
+        };
+    },
+    created() {
+        let id = this.$route.params.id;
+        axios
+            .get("/api/supplier/" + id)
+            .then(({ data }) => (this.form = data))
+            .catch(err => console.log(err.response.data.message));
+    },
+
     methods: {
         onFileSelected(event) {
             let file = event.target.files[0];
@@ -189,14 +210,15 @@ export default {
             } else {
                 let reader = new FileReader();
                 reader.onload = event => {
-                    this.form.photo = event.target.result;
+                    this.form.newphoto = event.target.result;
                 };
                 reader.readAsDataURL(file);
             }
         },
-        addSupplier() {
+        supplierUpdate() {
+            let id = this.$route.params.id;
             axios
-                .post("/api/supplier", this.form)
+                .patch("/api/supplier/" + id, this.form)
                 .then(() => {
                     this.$router.push({ name: "supplier" });
                     Notification.success();

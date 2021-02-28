@@ -74,8 +74,8 @@
         <div id="collapseBootstrap1" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
            
-   <router-link class="collapse-item" to="/store-supplier">Add Suppliers</router-link>
-   <router-link class="collapse-item" to="/supplier">All Suppliers</router-link>
+   <router-link class="collapse-item" to="/add-supplier">Add</router-link>
+   <router-link class="collapse-item" to="/supplier">View</router-link>
             
           </div>
         </div>
@@ -93,8 +93,8 @@
         <div id="collapseBootstrap2" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
            
-   <router-link class="collapse-item" to="/store-category">Add Category</router-link>
-   <router-link class="collapse-item" to="/category">All Category</router-link>
+   <router-link class="collapse-item" to="/add-category">Add</router-link>
+   <router-link class="collapse-item" to="/category">View</router-link>
             
           </div>
         </div>
@@ -114,7 +114,7 @@
         <div id="collapseBootstrap3" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
            
-   <router-link class="collapse-item" to="/store-product">Add Product</router-link>
+   <router-link class="collapse-item" to="/add-product">Add Product</router-link>
    <router-link class="collapse-item" to="/product">All Product</router-link>
             
           </div>
@@ -135,7 +135,7 @@
         <div id="collapseBootstrap4" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
            
-   <router-link class="collapse-item" to="/store-expense">Add Expense</router-link>
+   <router-link class="collapse-item" to="/add-expense">Add Expense</router-link>
    <router-link class="collapse-item" to="/expense">All Expense</router-link>
             
           </div>
@@ -155,8 +155,8 @@
         <div id="collapseBootstrap44" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
            
-   <router-link class="collapse-item" to="/store-customer">Add Customer</router-link>
-   <router-link class="collapse-item" to="/customer">All Customer</router-link>
+   <router-link class="collapse-item" to="/add-customer">Add</router-link>
+   <router-link class="collapse-item" to="/customer">View</router-link>
             
           </div>
         </div>
@@ -176,8 +176,8 @@
         <div id="collapseBootstrap5" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
            
-   <router-link class="collapse-item" to="/given-salary">Add Salary</router-link>
-   <router-link class="collapse-item" to="/salary">All Salary</router-link>
+   <router-link class="collapse-item" to="/given-salary">Add</router-link>
+   <router-link class="collapse-item" to="/salary">View</router-link>
             
           </div>
         </div>
