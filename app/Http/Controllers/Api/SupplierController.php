@@ -33,6 +33,7 @@ class SupplierController extends Controller
          'name' => 'required|unique:suppliers|max:255',
          'email' => 'required|unique:suppliers',
          'phone' => 'required|unique:suppliers',
+         'address'=>'required'
         ]);
       $supplier = new Supplier;
          // extract image
@@ -49,7 +50,7 @@ class SupplierController extends Controller
 
          $supplier->photo = $image_url;
      }else {
-        $supplier->photo = 'backend/supplier/noImage.png';
+        $supplier->photo = 'backend/noImage.png';
      }
          $supplier->name = $request->name;
          $supplier->email = $request->email;
@@ -89,7 +90,7 @@ class SupplierController extends Controller
         $data['shopname'] = $request->shopname;
         $image = $request->newphoto;
          // Check if there is a new image
-        if ($image && $image !== "backend/supplier/noImage.png") {
+        if ($image && $image !== "backend/noImage.png") {
          $position = strpos($image, ';');
          $sub = substr($image, 0, $position);
          $ext = explode('/', $sub)[1];
@@ -104,7 +105,7 @@ class SupplierController extends Controller
             $data['photo'] = $image_url;
             $img = DB::table('suppliers')->where('id',$id)->first();
             $image_path = $img->photo;
-            if($image_path !== "backend/supplier/noImage.png"){
+            if($image_path !== "backend/noImage.png"){
             unlink($image_path);
             }
             DB::table('suppliers')->where('id',$id)->update($data);
@@ -129,7 +130,7 @@ class SupplierController extends Controller
         $supplier = DB::table('suppliers')->where('id',$id)->first();
        $photo = $supplier->photo;
 
-       if ($photo !== "backend/supplier/noImage.png") {
+       if ($photo !== "backend/noImage.png") {
          unlink($photo);
          DB::table('suppliers')->where('id',$id)->delete();
        }else{

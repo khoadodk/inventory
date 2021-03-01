@@ -50,7 +50,7 @@ class EmployeeController extends Controller
 
          $employee->photo = $image_url;
      }else {
-        $employee->photo = 'backend/employee/noImage.png';
+        $employee->photo = 'backend/noImage.png';
      }
          $employee->name = $request->name;
          $employee->email = $request->email;
@@ -93,7 +93,7 @@ class EmployeeController extends Controller
         $data['join_date'] = $request->join_date;
         $image = $request->newphoto;
          // Check if there is a new image
-        if ($image && $image !== "backend/employee/noImage.png") {
+        if ($image && $image !== "backend/noImage.png") {
          $position = strpos($image, ';');
          $sub = substr($image, 0, $position);
          $ext = explode('/', $sub)[1];
@@ -108,7 +108,7 @@ class EmployeeController extends Controller
             $data['photo'] = $image_url;
             $img = DB::table('employees')->where('id',$id)->first();
             $image_path = $img->photo;
-            if($image_path !== "backend/employee/noImage.png"){
+            if($image_path !== "backend/noImage.png"){
             unlink($image_path);
             }
             DB::table('employees')->where('id',$id)->update($data);
@@ -133,7 +133,7 @@ class EmployeeController extends Controller
        $employee = DB::table('employees')->where('id',$id)->first();
        $photo = $employee->photo;
 
-       if ($photo !== "backend/employee/noImage.png") {
+       if ($photo !== "backend/noImage.png") {
          unlink($photo);
          DB::table('employees')->where('id',$id)->delete();
        }else{

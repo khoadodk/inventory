@@ -114,8 +114,8 @@
         <div id="collapseBootstrap3" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
            
-   <router-link class="collapse-item" to="/add-product">Add Product</router-link>
-   <router-link class="collapse-item" to="/product">All Product</router-link>
+   <router-link class="collapse-item" to="/add-product">Add</router-link>
+   <router-link class="collapse-item" to="/product">View</router-link>
             
           </div>
         </div>
@@ -135,8 +135,8 @@
         <div id="collapseBootstrap4" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
            
-   <router-link class="collapse-item" to="/add-expense">Add Expense</router-link>
-   <router-link class="collapse-item" to="/expense">All Expense</router-link>
+   <router-link class="collapse-item" to="/add-expense">Add</router-link>
+   <router-link class="collapse-item" to="/expense">View</router-link></router-link>
             
           </div>
         </div>
