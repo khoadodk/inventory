@@ -39,7 +39,7 @@
           <span>Dashboard</span></router-link>
       </li>
 
-     <li class="nav-item bg-info">
+     <li class="nav-item active">
         <router-link class="nav-link" to="/pos">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>POS</span></router-link>
