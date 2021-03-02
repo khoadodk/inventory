@@ -2,7 +2,7 @@
     <div>
         <div class="row">
             <router-link to="/add-product" class="btn btn-primary"
-                >Add A Product
+                >Add Product
             </router-link>
         </div>
         <br />
@@ -18,14 +18,11 @@
 
         <div class="row">
             <div class="col-lg-12 mb-4">
-                <!-- Simple Tables -->
                 <div class="card">
                     <div
                         class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
                     >
-                        <h6 class="m-0 font-weight-bold text-primary">
-                            Product List
-                        </h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Stock</h6>
                     </div>
                     <div class="table-responsive">
                         <table class="table align-items-center table-flush">
@@ -37,8 +34,8 @@
                                     <th>Category</th>
                                     <th>Supplier</th>
                                     <th>Buying Price</th>
-                                    <th>Selling Price</th>
-                                    <th>Purchase Date</th>
+                                    <th>Status</th>
+                                    <th>Quantity</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -58,24 +55,25 @@
                                     <td>{{ product.category_name }}</td>
                                     <td>{{ product.supplier_name }}</td>
                                     <td>{{ product.buying_price }}</td>
-                                    <td>{{ product.selling_price }}</td>
-                                    <td>{{ product.purchase_date }}</td>
+                                    <td v-if="product.product_quantity >= 1">
+                                        <span class="badge badge-success"
+                                            >Available
+                                        </span>
+                                    </td>
+                                    <td v-else="">
+                                        <span class="badge badge-danger"
+                                            >Out of Stock
+                                        </span>
+                                    </td>
+                                    <td>{{ product.product_quantity }}</td>
                                     <td>
                                         <router-link
                                             :to="{
-                                                name: 'edit-product',
+                                                name: 'edit-stock',
                                                 params: { id: product.id }
                                             }"
                                             class="btn btn-sm btn-primary"
                                             >Edit</router-link
-                                        >
-
-                                        <a
-                                            @click="deleteProduct(product.id)"
-                                            class="btn btn-sm btn-danger"
-                                            ><font color="#ffffff"
-                                                >Delete</font
-                                            ></a
                                         >
                                     </td>
                                 </tr>
@@ -86,7 +84,6 @@
                 </div>
             </div>
         </div>
-        <!--Row-->
     </div>
 </template>
 
@@ -114,38 +111,9 @@ export default {
     methods: {
         allProduct() {
             axios
-                .get("/api/product/")
+                .get("/api/product")
                 .then(({ data }) => (this.products = data))
-                .catch();
-        },
-        deleteProduct(id) {
-            Swal.fire({
-                title: "Are you sure?",
-                text: "You won't be able to revert this!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, delete it!"
-            }).then(result => {
-                if (result.value) {
-                    axios
-                        .delete("/api/product/" + id)
-                        .then(() => {
-                            this.products = this.products.filter(product => {
-                                return product.id != id;
-                            });
-                        })
-                        .catch(() => {
-                            this.$router.push({ name: "product" });
-                        });
-                    Swal.fire(
-                        "Deleted!",
-                        "Your file has been deleted.",
-                        "success"
-                    );
-                }
-            });
+                .catch(err => console.log(err));
         }
     },
     created() {

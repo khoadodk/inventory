@@ -40,7 +40,7 @@
                                     v-for="category in filtersearch"
                                     :key="category.id"
                                 >
-                                    <td>{{ category.name }}</td>
+                                    <td>{{ category.category_name }}</td>
 
                                     <td>
                                         <router-link
@@ -87,7 +87,7 @@ export default {
     computed: {
         filtersearch() {
             return this.categories.filter(category => {
-                return category.name.match(this.searchTerm);
+                return category.category_name.match(this.searchTerm);
             });
         }
     },

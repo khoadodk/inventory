@@ -30,7 +30,7 @@ class SupplierController extends Controller
     public function store(Request $request)
     {
         $validateData = $request->validate([
-         'name' => 'required|unique:suppliers|max:255',
+         'supplier_name' => 'required|unique:suppliers|max:255',
          'email' => 'required|unique:suppliers',
          'phone' => 'required|unique:suppliers',
          'address'=>'required'
@@ -52,7 +52,7 @@ class SupplierController extends Controller
      }else {
         $supplier->photo = 'backend/noImage.png';
      }
-         $supplier->name = $request->name;
+         $supplier->supplier_name = $request->supplier_name;
          $supplier->email = $request->email;
          $supplier->phone = $request->phone;
          $supplier->address = $request->address;
@@ -83,7 +83,7 @@ class SupplierController extends Controller
     public function update(Request $request, $id)
     {
         $data = array();
-        $data['name'] = $request->name;
+        $data['supplier_name'] = $request->supplier_name;
         $data['email'] = $request->email;
         $data['phone'] = $request->phone;
         $data['address'] = $request->address;
@@ -128,13 +128,13 @@ class SupplierController extends Controller
     public function destroy($id)
     {
         $supplier = DB::table('suppliers')->where('id',$id)->first();
-       $photo = $supplier->photo;
+        $photo = $supplier->photo;
 
-       if ($photo !== "backend/noImage.png") {
-         unlink($photo);
-         DB::table('suppliers')->where('id',$id)->delete();
-       }else{
-        DB::table('suppliers')->where('id',$id)->delete();
-       }
+        if ($photo !== "backend/noImage.png") {
+            unlink($photo);
+            DB::table('suppliers')->where('id',$id)->delete();
+        }else{
+            DB::table('suppliers')->where('id',$id)->delete();
+        }
     }
 }

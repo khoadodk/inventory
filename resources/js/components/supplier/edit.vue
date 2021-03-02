@@ -32,13 +32,20 @@
                                                         class="form-control"
                                                         id="exampleInputFirstName"
                                                         placeholder="Enter Full Name"
-                                                        v-model="form.name"
+                                                        v-model="
+                                                            form.supplier_name
+                                                        "
                                                     />
                                                     <small
                                                         class="text-danger"
-                                                        v-if="errors.name"
+                                                        v-if="
+                                                            errors.supplier_name
+                                                        "
                                                     >
-                                                        {{ errors.name[0] }}
+                                                        {{
+                                                            errors
+                                                                .supplier_name[0]
+                                                        }}
                                                     </small>
                                                 </div>
 
@@ -183,7 +190,7 @@ export default {
     data() {
         return {
             form: {
-                name: "",
+                supplier_name: "",
                 email: "",
                 phone: "",
                 address: "",

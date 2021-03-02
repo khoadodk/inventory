@@ -44,7 +44,7 @@
                                     v-for="supplier in filtersearch"
                                     :key="supplier.id"
                                 >
-                                    <td>{{ supplier.name }}</td>
+                                    <td>{{ supplier.supplier_name }}</td>
                                     <td>
                                         <img
                                             :src="supplier.photo"
@@ -100,7 +100,7 @@ export default {
     computed: {
         filtersearch() {
             return this.suppliers.filter(supplier => {
-                return supplier.name.match(this.searchTerm);
+                return supplier.supplier_name.match(this.searchTerm);
             });
         }
     },

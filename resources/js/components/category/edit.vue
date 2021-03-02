@@ -31,13 +31,20 @@
                                                         class="form-control"
                                                         id="exampleInputFirstName"
                                                         placeholder="Enter Your Category Name"
-                                                        v-model="form.name"
+                                                        v-model="
+                                                            form.category_name
+                                                        "
                                                     />
                                                     <small
                                                         class="text-danger"
-                                                        v-if="errors.name"
+                                                        v-if="
+                                                            errors.category_name
+                                                        "
                                                     >
-                                                        {{ errors.name[0] }}
+                                                        {{
+                                                            errors
+                                                                .category_name[0]
+                                                        }}
                                                     </small>
                                                 </div>
                                             </div>
@@ -76,7 +83,7 @@ export default {
     data() {
         return {
             form: {
-                name: ""
+                category_name: ""
             },
             errors: {}
         };
@@ -86,7 +93,7 @@ export default {
         axios
             .get("/api/category/" + id)
             .then(({ data }) => (this.form = data))
-            .catch(console.log("error"));
+            .catch(err => console.log(err));
     },
 
     methods: {
