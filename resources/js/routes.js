@@ -24,6 +24,12 @@ let editproduct = require("./components/product/edit.vue").default;
 let addexpense = require("./components/expense/create.vue").default;
 let expense = require("./components/expense/index.vue").default;
 let editexpense = require("./components/expense/edit.vue").default;
+// Salary Components
+let employeesalary = require("./components/salary/employee_salary.vue").default;
+let paysalary = require("./components/salary/create.vue").default;
+let salary = require("./components/salary/index.vue").default;
+let viewsalary = require("./components/salary/view.vue").default;
+let editsalary = require("./components/salary/edit.vue").default;
 
 export const routes = [
     { path: "/", component: login, name: "/" },
@@ -110,5 +116,31 @@ export const routes = [
         path: "/edit-expense/:id",
         component: editexpense,
         name: "edit-expense"
+    },
+    // Salary Routes
+    {
+        path: "/employee-salary",
+        component: employeesalary,
+        name: "employee-salary"
+    },
+    {
+        path: "/pay-salary/:id",
+        component: paysalary,
+        name: "pay-salary"
+    },
+    {
+        path: "/salary",
+        component: salary,
+        name: "salary"
+    },
+    {
+        path: "/view-salary/:id",
+        component: viewsalary,
+        name: "view-salary"
+    },
+    {
+        path: "/edit-salary/:id",
+        component: editsalary,
+        name: "edit-salary"
     }
 ];

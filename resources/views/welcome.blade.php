@@ -65,6 +65,7 @@
         </div>
       </li>
 
+
 <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap1"
           aria-expanded="true" aria-controls="collapseBootstrap1">
@@ -80,8 +81,6 @@
           </div>
         </div>
       </li>
-
-
 
 
 <li class="nav-item">
@@ -101,10 +100,6 @@
       </li>
 
 
-
-
-
-
 <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap3"
           aria-expanded="true" aria-controls="collapseBootstrap3">
@@ -120,10 +115,6 @@
           </div>
         </div>
       </li>
-
-
-
-
 
 
 <li class="nav-item">
@@ -142,10 +133,6 @@
         </div>
       </li>
 
-
-
-
-
 <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap44"
           aria-expanded="true" aria-controls="collapseBootstrap44">
@@ -163,10 +150,6 @@
       </li>
 
 
-
-
-
-
 <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap5"
           aria-expanded="true" aria-controls="collapseBootstrap5">
@@ -176,16 +159,12 @@
         <div id="collapseBootstrap5" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
            
-   <router-link class="collapse-item" to="/given-salary">Add</router-link>
-   <router-link class="collapse-item" to="/salary">View</router-link>
-            
+   <router-link class="collapse-item" to="/employee-salary">View Salaried Employees</router-link>
+    <router-link class="collapse-item" to="/salary">View Paid Salaries</router-link>         
           </div>
         </div>
       </li>
  
-
-
-
 
 <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap51"

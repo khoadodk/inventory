@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Expense;
-use Image;
 use DB;
 
 class ExpenseController extends Controller
@@ -18,7 +17,7 @@ class ExpenseController extends Controller
     public function index()
     {
         $expense = Expense::all();
-       return response()->json($expense);
+        return response()->json($expense);
     }
 
     /**
