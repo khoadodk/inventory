@@ -28,3 +28,14 @@ Route::get('/salary', 'Api\SalaryController@allSalary');
 Route::get('/salary/view/{id}', 'Api\SalaryController@viewSalary');
 Route::get('/salary/edit/{id}', 'Api\SalaryController@editSalary');
 Route::post('/salary/update/{id}', 'Api\SalaryController@updateSalary');
+
+// POS Routes
+Route::get('/productsbycat/{id}', 'Api\PosController@getProductsByCat');
+
+// Cart Routes
+Route::get('/addtocart/{id}', 'Api\CartController@addToCart');
+Route::get('/cart', 'Api\CartController@getCart');
+Route::get('/cart/remove/{id}', 'Api\CartController@removeItemFromCart');
+Route::get('/cart/increment/{id}', 'Api\CartController@increment');
+Route::get('/cart/decrement/{id}', 'Api\CartController@decrement');
+Route::get('/tax', 'Api\CartController@tax');

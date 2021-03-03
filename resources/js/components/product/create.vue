@@ -100,7 +100,7 @@
                                                             :value="category.id"
                                                             v-for="category in categories"
                                                             >{{
-                                                                category.name
+                                                                category.category_name
                                                             }}</option
                                                         >
                                                     </select>
@@ -122,7 +122,7 @@
                                                             :value="supplier.id"
                                                             v-for="supplier in suppliers"
                                                             >{{
-                                                                supplier.name
+                                                                supplier.supplier_name
                                                             }}</option
                                                         >
                                                     </select>

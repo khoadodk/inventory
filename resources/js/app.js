@@ -19,6 +19,7 @@ window.Notification = Notification;
 import Swal from "sweetalert2";
 window.Swal = Swal;
 
+window.Reload = new Vue();
 
 const Toast = Swal.mixin({
     toast: true,
@@ -39,6 +40,6 @@ const router = new VueRouter({
 });
 
 const app = new Vue({
-    el: '#app',
+    el: "#app",
     router
 });
