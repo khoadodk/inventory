@@ -32,6 +32,11 @@ Route::post('/salary/update/{id}', 'Api\SalaryController@updateSalary');
 // POS Routes
 Route::get('/productsbycat/{id}', 'Api\PosController@getProductsByCat');
 Route::post('/posorder', 'Api\PosController@posOrder');
+Route::get('/today/sell', 'Api\PosController@todaySell');
+Route::get('/today/income', 'Api\PosController@todayIncome');
+Route::get('/today/due', 'Api\PosController@todayDue');
+Route::get('/today/expense', 'Api\PosController@todayExpense');
+Route::get('/today/stock', 'Api\PosController@todayStock');
 
 // Cart Routes
 Route::get('/addtocart/{id}', 'Api\CartController@addToCart');
@@ -46,3 +51,4 @@ Route::get('/order/today', 'Api\OrderController@getTodayOrders');
 Route::get('/order/{id}', 'Api\OrderController@getOrderDetail');
 Route::get('/order/detail/{id}', 'Api\OrderController@getOrderProducts');
 Route::post('/order/search', 'Api\OrderController@getOrderByDate');
+

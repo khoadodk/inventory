@@ -190,20 +190,7 @@
         </router-link>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
-          aria-controls="collapseTable">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Reports</span>
-        </a>
-        <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            
-            <a class="collapse-item" href="simple-tables.html">Report One</a>
-            <a class="collapse-item" href="datatables.html">Report Two</a>
-          </div>
-        </div>
-      </li>
+      
        
       <hr class="sidebar-divider">
       <div class="version" id="version-ruangadmin"></div>
@@ -457,8 +444,8 @@
 
   <script src="{{ asset('backend/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
   <script src="{{ asset('backend/js/ruang-admin.min.js')}}"></script>
-  <script src="{{ asset('backend/vendor/chart.js/Chart.min.js')}}"></script>
-  <script src="{{ asset('backend/js/demo/chart-area-demo.js')}}"></script>  
+  {{-- <script src="{{ asset('backend/vendor/chart.js/Chart.min.js')}}"></script> --}}
+  {{-- <script src="{{ asset('backend/js/demo/chart-area-demo.js')}}"></script>   --}}
 </body>
 
 </html>
