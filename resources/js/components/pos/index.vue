@@ -121,7 +121,7 @@
                             </ul>
                             <br />
 
-                            <form @submit.prevent="orderdone">
+                            <form @submit.prevent="posOrder">
                                 <label>Customer Name</label>
                                 <select
                                     class="form-control"
@@ -139,7 +139,7 @@
                                     type="text"
                                     class="form-control"
                                     required=""
-                                    v-model="amount"
+                                    v-model="pay_amount"
                                 />
 
                                 <label>Due</label>
@@ -152,9 +152,9 @@
 
                                 <label>Paid By</label>
                                 <select class="form-control" v-model="paidby">
-                                    <option value="HandCash">Cash</option>
-                                    <option value="Cheaque">Cheack</option>
-                                    <option value="GiftCard">Gift Card</option>
+                                    <option value="Cash">Cash</option>
+                                    <option value="Check">Check</option>
+                                    <option value="Card">Card</option>
                                 </select>
 
                                 <br />
@@ -379,9 +379,10 @@ export default {
     data() {
         return {
             customer_id: "",
-            amount: "",
+            pay_amount: "",
             due: "",
             paidby: "",
+
             products: [],
             categories: "",
             productsByCat: [],
@@ -470,6 +471,27 @@ export default {
             axios
                 .get("/api/tax")
                 .then(({ data }) => (this.taxes = data))
+                .catch(err => console.log(err));
+        },
+        posOrder() {
+            let total = (this.subtotal * this.taxes.tax) / 100 + this.subtotal;
+            var data = {
+                qty: this.qty,
+                subtotal: this.subtotal,
+                customer_id: this.customer_id,
+                paidby: this.paidby,
+                pay_amount: this.pay_amount,
+                due: this.due,
+                tax: this.taxes.tax,
+                total: total
+            };
+
+            axios
+                .post("/api/posorder", data)
+                .then(() => {
+                    Notification.success();
+                    this.$router.push({ name: "home" });
+                })
                 .catch(err => console.log(err));
         },
 

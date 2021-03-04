@@ -41,7 +41,7 @@
 
      <li class="nav-item active">
         <router-link class="nav-link" to="/pos">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <i class="fas fa-fw fa-cart-plus"></i>
           <span>POS</span></router-link>
       </li>
 
@@ -52,7 +52,7 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
           aria-expanded="true" aria-controls="collapseBootstrap">
-          <i class="far fa-fw fa-window-maximize"></i>
+          <i class="far fa-fw fa-user-circle"></i>
           <span>Employee</span>
         </a>
         <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
@@ -69,7 +69,7 @@
 <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap1"
           aria-expanded="true" aria-controls="collapseBootstrap1">
-          <i class="far fa-fw fa-window-maximize"></i>
+          <i class="fas fa-boxes"></i>
           <span>Suppliers</span>
         </a>
         <div id="collapseBootstrap1" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
@@ -86,7 +86,7 @@
 <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap2"
           aria-expanded="true" aria-controls="collapseBootstrap2">
-          <i class="far fa-fw fa-window-maximize"></i>
+          <i class="fas fa-grip-lines"></i>
           <span>Category</span>
         </a>
         <div id="collapseBootstrap2" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
@@ -103,7 +103,7 @@
 <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap3"
           aria-expanded="true" aria-controls="collapseBootstrap3">
-          <i class="far fa-fw fa-window-maximize"></i>
+          <i class="fab fa-product-hunt"></i>
           <span>Products</span>
         </a>
         <div id="collapseBootstrap3" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
@@ -120,7 +120,7 @@
 <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap4"
           aria-expanded="true" aria-controls="collapseBootstrap4">
-          <i class="far fa-fw fa-window-maximize"></i>
+          <i class="fas fa-money-bill"></i>
           <span>Expense</span>
         </a>
         <div id="collapseBootstrap4" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
@@ -136,7 +136,7 @@
 <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap44"
           aria-expanded="true" aria-controls="collapseBootstrap44">
-          <i class="far fa-fw fa-window-maximize"></i>
+          <i class="fas fa-users"></i>
           <span>Customers</span>
         </a>
         <div id="collapseBootstrap44" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
@@ -153,7 +153,7 @@
 <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap5"
           aria-expanded="true" aria-controls="collapseBootstrap5">
-          <i class="far fa-fw fa-window-maximize"></i>
+          <i class="fas fa-user-check"></i>
           <span>Salary</span>
         </a>
         <div id="collapseBootstrap5" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
@@ -169,14 +169,14 @@
 <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap51"
           aria-expanded="true" aria-controls="collapseBootstrap51">
-          <i class="far fa-fw fa-window-maximize"></i>
+          <i class="fas fa-sticky-note"></i>
           <span>Orders</span>
         </a>
         <div id="collapseBootstrap51" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
            
-   <router-link class="collapse-item" to="/order">Today Order</router-link>
-   <router-link class="collapse-item" to="/searchorder">Search</router-link>
+            <router-link class="collapse-item" to="/order/today">Today Order</router-link>
+            <router-link class="collapse-item" to="/order/search">Search</router-link>
             
           </div>
         </div>
@@ -415,12 +415,24 @@
                <router-view></router-view>
         </div>
         <!---Container Fluid-->
+
       </div>
-
-    </div> 
-
+    </div>
   </div>
-
+   <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; <script> document.write(new Date().getFullYear()); </script> - Developed by
+              <b><a href="https://www.khoado.dev" target="_blank">Khoa Do</a></b>
+            </span>
+            <span> and Theme developed by
+              <b><a href="https://indrijunanda.gitlab.io/" target="_blank">indrijunanda</a></b>
+            </span>
+          </div>
+        </div>
+      </footer>
+      <!-- Footer -->
   </div>
 
   <!-- Scroll to top -->

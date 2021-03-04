@@ -39,6 +39,10 @@ let stock = require("./components/product/stock.vue").default;
 let editstock = require("./components/product/edit-stock.vue").default;
 // POS Components
 let pos = require("./components/pos/index.vue").default;
+// Order Component
+let ordertoday = require("./components/order/ordertoday.vue").default;
+let orderdetail = require("./components/order/orderdetail.vue").default;
+let ordersearch = require("./components/order/search.vue").default;
 
 export const routes = [
     { path: "/", component: login, name: "/" },
@@ -184,5 +188,21 @@ export const routes = [
         path: "/pos",
         component: pos,
         name: "pos"
+    },
+    // Stock Routes
+    {
+        path: "/order/today",
+        component: ordertoday,
+        name: "ordertoday"
+    },
+    {
+        path: "/order/search",
+        component: ordersearch,
+        name: "ordersearch"
+    },
+    {
+        path: "/order-detail/:id",
+        component: orderdetail,
+        name: "order-detail"
     }
 ];
