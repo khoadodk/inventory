@@ -181,11 +181,11 @@ export default {
             errors: {}
         };
     },
-    created() {
-        if (!User.loggedIn()) {
-            this.$router.push({ name: "/" });
-        }
-    },
+    // created() {
+    //     if (!User.loggedIn()) {
+    //         this.$router.push({ name: "/" });
+    //     }
+    // },
     methods: {
         onFileSelected(event) {
             let file = event.target.files[0];

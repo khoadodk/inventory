@@ -76,11 +76,11 @@ export default {
             errors: {}
         };
     },
-    created() {
-        if (!User.loggedIn()) {
-            this.$router.push({ name: "/" });
-        }
-    },
+    // created() {
+    //     if (!User.loggedIn()) {
+    //         this.$router.push({ name: "/" });
+    //     }
+    // },
     methods: {
         addCategory() {
             axios

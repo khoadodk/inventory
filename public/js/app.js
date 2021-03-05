@@ -2387,13 +2387,11 @@ __webpack_require__.r(__webpack_exports__);
       errors: {}
     };
   },
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   methods: {
     addCategory: function addCategory() {
       var _this = this;
@@ -2422,10 +2420,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var _created$data$created;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -2500,14 +2494,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = (_created$data$created = {
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+/* harmony default export */ __webpack_exports__["default"] = ({
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   data: function data() {
     return {
       form: {
@@ -2515,33 +2507,35 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       },
       errors: {}
     };
-  }
-}, _defineProperty(_created$data$created, "created", function created() {
-  var _this = this;
-
-  var id = this.$route.params.id;
-  axios.get("/api/category/" + id).then(function (_ref) {
-    var data = _ref.data;
-    return _this.form = data;
-  })["catch"](function (err) {
-    return console.log(err);
-  });
-}), _defineProperty(_created$data$created, "methods", {
-  categoryUpdate: function categoryUpdate() {
-    var _this2 = this;
+  },
+  created: function created() {
+    var _this = this;
 
     var id = this.$route.params.id;
-    axios.patch("/api/category/" + id, this.form).then(function () {
-      _this2.$router.push({
-        name: "category"
-      });
-
-      Notification.success();
-    })["catch"](function (error) {
-      return _this2.errors = error.response.data.errors;
+    axios.get("/api/category/" + id).then(function (_ref) {
+      var data = _ref.data;
+      return _this.form = data;
+    })["catch"](function (err) {
+      return console.log(err);
     });
+  },
+  methods: {
+    categoryUpdate: function categoryUpdate() {
+      var _this2 = this;
+
+      var id = this.$route.params.id;
+      axios.patch("/api/category/" + id, this.form).then(function () {
+        _this2.$router.push({
+          name: "category"
+        });
+
+        Notification.success();
+      })["catch"](function (error) {
+        return _this2.errors = error.response.data.errors;
+      });
+    }
   }
-}), _created$data$created);
+});
 
 /***/ }),
 
@@ -2554,8 +2548,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -2629,14 +2621,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+/* harmony default export */ __webpack_exports__["default"] = ({
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   data: function data() {
     return {
       categories: [],
@@ -2687,10 +2677,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       });
     }
+  },
+  created: function created() {
+    this.allCategory();
   }
-}, "created", function created() {
-  this.allCategory();
-}));
+});
 
 /***/ }),
 
@@ -2880,13 +2871,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   data: function data() {
     return {
       form: {
@@ -2944,10 +2933,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var _created$data$created;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -3124,14 +3109,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = (_created$data$created = {
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+/* harmony default export */ __webpack_exports__["default"] = ({
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   data: function data() {
     return {
       form: {
@@ -3144,50 +3127,52 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       },
       errors: {}
     };
-  }
-}, _defineProperty(_created$data$created, "created", function created() {
-  var _this = this;
-
-  var id = this.$route.params.id;
-  axios.get("/api/customer/" + id).then(function (_ref) {
-    var data = _ref.data;
-    return _this.form = data;
-  })["catch"](function (err) {
-    return console.log(err);
-  });
-}), _defineProperty(_created$data$created, "methods", {
-  onFileSelected: function onFileSelected(event) {
-    var _this2 = this;
-
-    var file = event.target.files[0];
-
-    if (file.size > 1048770) {
-      Notification.image_validation();
-    } else {
-      var reader = new FileReader();
-
-      reader.onload = function (event) {
-        _this2.form.newphoto = event.target.result;
-      };
-
-      reader.readAsDataURL(file);
-    }
   },
-  customerUpdate: function customerUpdate() {
-    var _this3 = this;
+  created: function created() {
+    var _this = this;
 
     var id = this.$route.params.id;
-    axios.patch("/api/customer/" + id, this.form).then(function () {
-      _this3.$router.push({
-        name: "customer"
-      });
-
-      Notification.success();
-    })["catch"](function (error) {
-      return _this3.errors = error.response.data.errors;
+    axios.get("/api/customer/" + id).then(function (_ref) {
+      var data = _ref.data;
+      return _this.form = data;
+    })["catch"](function (err) {
+      return console.log(err);
     });
+  },
+  methods: {
+    onFileSelected: function onFileSelected(event) {
+      var _this2 = this;
+
+      var file = event.target.files[0];
+
+      if (file.size > 1048770) {
+        Notification.image_validation();
+      } else {
+        var reader = new FileReader();
+
+        reader.onload = function (event) {
+          _this2.form.newphoto = event.target.result;
+        };
+
+        reader.readAsDataURL(file);
+      }
+    },
+    customerUpdate: function customerUpdate() {
+      var _this3 = this;
+
+      var id = this.$route.params.id;
+      axios.patch("/api/customer/" + id, this.form).then(function () {
+        _this3.$router.push({
+          name: "customer"
+        });
+
+        Notification.success();
+      })["catch"](function (error) {
+        return _this3.errors = error.response.data.errors;
+      });
+    }
   }
-}), _created$data$created);
+});
 
 /***/ }),
 
@@ -3200,8 +3185,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -3287,14 +3270,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+/* harmony default export */ __webpack_exports__["default"] = ({
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   data: function data() {
     return {
       customers: [],
@@ -3347,10 +3328,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       });
     }
+  },
+  created: function created() {
+    this.allCustomer();
   }
-}, "created", function created() {
-  this.allCustomer();
-}));
+});
 
 /***/ }),
 
@@ -3587,13 +3569,11 @@ __webpack_require__.r(__webpack_exports__);
       errors: {}
     };
   },
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   methods: {
     onFileSelected: function onFileSelected(event) {
       var _this = this;
@@ -3639,10 +3619,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var _created$data$created;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -3862,14 +3838,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = (_created$data$created = {
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+/* harmony default export */ __webpack_exports__["default"] = ({
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   data: function data() {
     return {
       form: {
@@ -3885,50 +3859,52 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       },
       errors: {}
     };
-  }
-}, _defineProperty(_created$data$created, "created", function created() {
-  var _this = this;
-
-  var id = this.$route.params.id;
-  axios.get("/api/employee/" + id).then(function (_ref) {
-    var data = _ref.data;
-    return _this.form = data;
-  })["catch"](function (err) {
-    return console.log(err.response.data.message);
-  });
-}), _defineProperty(_created$data$created, "methods", {
-  onFileSelected: function onFileSelected(event) {
-    var _this2 = this;
-
-    var file = event.target.files[0];
-
-    if (file.size > 1048770) {
-      Notification.image_validation();
-    } else {
-      var reader = new FileReader();
-
-      reader.onload = function (event) {
-        _this2.form.newphoto = event.target.result;
-      };
-
-      reader.readAsDataURL(file);
-    }
   },
-  employeeUpdate: function employeeUpdate() {
-    var _this3 = this;
+  created: function created() {
+    var _this = this;
 
     var id = this.$route.params.id;
-    axios.patch("/api/employee/" + id, this.form).then(function () {
-      _this3.$router.push({
-        name: "employee"
-      });
-
-      Notification.success();
-    })["catch"](function (error) {
-      return _this3.errors = error.response.data.errors;
+    axios.get("/api/employee/" + id).then(function (_ref) {
+      var data = _ref.data;
+      return _this.form = data;
+    })["catch"](function (err) {
+      return console.log(err.response.data.message);
     });
+  },
+  methods: {
+    onFileSelected: function onFileSelected(event) {
+      var _this2 = this;
+
+      var file = event.target.files[0];
+
+      if (file.size > 1048770) {
+        Notification.image_validation();
+      } else {
+        var reader = new FileReader();
+
+        reader.onload = function (event) {
+          _this2.form.newphoto = event.target.result;
+        };
+
+        reader.readAsDataURL(file);
+      }
+    },
+    employeeUpdate: function employeeUpdate() {
+      var _this3 = this;
+
+      var id = this.$route.params.id;
+      axios.patch("/api/employee/" + id, this.form).then(function () {
+        _this3.$router.push({
+          name: "employee"
+        });
+
+        Notification.success();
+      })["catch"](function (error) {
+        return _this3.errors = error.response.data.errors;
+      });
+    }
   }
-}), _created$data$created);
+});
 
 /***/ }),
 
@@ -3941,8 +3917,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -4031,14 +4005,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+/* harmony default export */ __webpack_exports__["default"] = ({
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   data: function data() {
     return {
       employees: [],
@@ -4091,10 +4063,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       });
     }
+  },
+  created: function created() {
+    this.allEmployee();
   }
-}, "created", function created() {
-  this.allEmployee();
-}));
+});
 
 /***/ }),
 
@@ -4203,13 +4176,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   data: function data() {
     return {
       form: {
@@ -4247,10 +4218,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var _created$data$created;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -4346,14 +4313,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = (_created$data$created = {
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+/* harmony default export */ __webpack_exports__["default"] = ({
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   data: function data() {
     return {
       form: {
@@ -4361,31 +4326,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       },
       errors: {}
     };
-  }
-}, _defineProperty(_created$data$created, "created", function created() {
-  var _this = this;
-
-  var id = this.$route.params.id;
-  axios.get("/api/expense/" + id).then(function (_ref) {
-    var data = _ref.data;
-    return _this.form = data;
-  })["catch"](console.log("error"));
-}), _defineProperty(_created$data$created, "methods", {
-  expenseUpdate: function expenseUpdate() {
-    var _this2 = this;
+  },
+  created: function created() {
+    var _this = this;
 
     var id = this.$route.params.id;
-    axios.patch("/api/expense/" + id, this.form).then(function () {
-      _this2.$router.push({
-        name: "expense"
-      });
+    axios.get("/api/expense/" + id).then(function (_ref) {
+      var data = _ref.data;
+      return _this.form = data;
+    })["catch"](console.log("error"));
+  },
+  methods: {
+    expenseUpdate: function expenseUpdate() {
+      var _this2 = this;
 
-      Notification.success();
-    })["catch"](function (error) {
-      return _this2.errors = error.response.data.errors;
-    });
+      var id = this.$route.params.id;
+      axios.patch("/api/expense/" + id, this.form).then(function () {
+        _this2.$router.push({
+          name: "expense"
+        });
+
+        Notification.success();
+      })["catch"](function (error) {
+        return _this2.errors = error.response.data.errors;
+      });
+    }
   }
-}), _created$data$created);
+});
 
 /***/ }),
 
@@ -4398,8 +4365,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -4476,14 +4441,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+/* harmony default export */ __webpack_exports__["default"] = ({
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   data: function data() {
     return {
       expenses: [],
@@ -4534,10 +4497,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       });
     }
+  },
+  created: function created() {
+    this.allExpense();
   }
-}, "created", function created() {
-  this.allExpense();
-}));
+});
 
 /***/ }),
 
@@ -4756,13 +4720,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   data: function data() {
     return {
       todaysell: "",
@@ -4844,8 +4806,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -5073,38 +5033,37 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+/* harmony default export */ __webpack_exports__["default"] = ({
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   data: function data() {
     return {
       errors: {},
       orders: {},
       details: {}
     };
-  }
-}, "created", function created() {
-  var _this = this;
+  },
+  created: function created() {
+    var _this = this;
 
-  var id = this.$route.params.id;
-  axios.get("/api/order/" + id).then(function (_ref) {
-    var data = _ref.data;
-    return _this.orders = data;
-  })["catch"](function (err) {
-    return console.log(err);
-  });
-  axios.get("/api/order/detail/" + id).then(function (_ref2) {
-    var data = _ref2.data;
-    return _this.details = data;
-  })["catch"](function (err) {
-    return console.log(err);
-  });
-}));
+    var id = this.$route.params.id;
+    axios.get("/api/order/" + id).then(function (_ref) {
+      var data = _ref.data;
+      return _this.orders = data;
+    })["catch"](function (err) {
+      return console.log(err);
+    });
+    axios.get("/api/order/detail/" + id).then(function (_ref2) {
+      var data = _ref2.data;
+      return _this.details = data;
+    })["catch"](function (err) {
+      return console.log(err);
+    });
+  }
+});
 
 /***/ }),
 
@@ -5117,8 +5076,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -5188,14 +5145,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+/* harmony default export */ __webpack_exports__["default"] = ({
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   data: function data() {
     return {
       orders: [],
@@ -5222,10 +5177,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return console.log(err);
       });
     }
+  },
+  created: function created() {
+    this.allOrder();
   }
-}, "created", function created() {
-  this.allOrder();
-}));
+});
 
 /***/ }),
 
@@ -5363,13 +5319,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   data: function data() {
     return {
       date: "",
@@ -5404,10 +5358,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var _created$created$data;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -5767,195 +5717,197 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = (_created$created$data = {
+/* harmony default export */ __webpack_exports__["default"] = ({
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  }
-}, _defineProperty(_created$created$data, "created", function created() {
-  var _this = this;
+    var _this = this;
 
-  this.allProduct();
-  this.allCategory();
-  this.allCustomer();
-  this.getCartProduct();
-  this.getTax(); // Reload page after adding a add product to cart
+    this.allProduct();
+    this.allCategory();
+    this.allCustomer();
+    this.getCartProduct();
+    this.getTax(); // Reload page after adding a add product to cart
 
-  Reload.$on("AfterAdd", function () {
-    _this.getCartProduct();
-  });
-}), _defineProperty(_created$created$data, "data", function data() {
-  return {
-    customer_id: "",
-    pay_amount: "",
-    due: "",
-    paidby: "",
-    products: [],
-    categories: "",
-    productsByCat: [],
-    searchTerm: "",
-    getsearchTerm: "",
-    customers: "",
-    errors: "",
-    carts: [],
-    taxes: ""
-  };
-}), _defineProperty(_created$created$data, "computed", {
-  filtersearch: function filtersearch() {
-    var _this2 = this;
-
-    return this.products.filter(function (product) {
-      return product.product_name.match(_this2.searchTerm);
+    Reload.$on("AfterAdd", function () {
+      _this.getCartProduct();
     });
   },
-  getfiltersearch: function getfiltersearch() {
-    var _this3 = this;
-
-    return this.productsByCat.filter(function (productsByCat) {
-      return productsByCat.product_name.match(_this3.getsearchTerm);
-    });
-  },
-  qty: function qty() {
-    var sum = 0;
-
-    for (var i = 0; i < this.carts.length; i++) {
-      sum += parseFloat(this.carts[i].prod_quantity);
-    }
-
-    return sum;
-  },
-  subtotal: function subtotal() {
-    var sum = 0;
-
-    for (var i = 0; i < this.carts.length; i++) {
-      sum += parseFloat(this.carts[i].prod_quantity) * parseFloat(this.carts[i].prod_price);
-    }
-
-    return sum;
-  }
-}), _defineProperty(_created$created$data, "methods", {
-  // Cart Methods Here
-  AddToCart: function AddToCart(id) {
-    axios.get("/api/addtocart/" + id).then(function () {
-      Reload.$emit("AfterAdd");
-      Notification.cart_success();
-    })["catch"](function (err) {
-      return console.log(err);
-    });
-  },
-  getCartProduct: function getCartProduct() {
-    var _this4 = this;
-
-    axios.get("/api/cart").then(function (_ref) {
-      var data = _ref.data;
-      return _this4.carts = data;
-    })["catch"](function (err) {
-      return console.log(err);
-    });
-  },
-  removeItem: function removeItem(id) {
-    axios.get("/api/cart/remove/" + id).then(function () {
-      Reload.$emit("AfterAdd");
-      Notification.cart_delete();
-    })["catch"](function (err) {
-      return console.log(err);
-    });
-  },
-  increment: function increment(id) {
-    axios.get("/api/cart/increment/" + id).then(function () {
-      Reload.$emit("AfterAdd");
-      Notification.success();
-    })["catch"](function (err) {
-      return console.log(err);
-    });
-  },
-  decrement: function decrement(id) {
-    axios.get("/api/cart/decrement/" + id).then(function () {
-      Reload.$emit("AfterAdd");
-      Notification.success();
-    })["catch"](function (err) {
-      return console.log(err);
-    });
-  },
-  getTax: function getTax() {
-    var _this5 = this;
-
-    axios.get("/api/tax").then(function (_ref2) {
-      var data = _ref2.data;
-      return _this5.taxes = data;
-    })["catch"](function (err) {
-      return console.log(err);
-    });
-  },
-  posOrder: function posOrder() {
-    var _this6 = this;
-
-    var total = this.subtotal * this.taxes.tax / 100 + this.subtotal;
-    var data = {
-      qty: this.qty,
-      subtotal: this.subtotal,
-      customer_id: this.customer_id,
-      paidby: this.paidby,
-      pay_amount: this.pay_amount,
-      due: this.due,
-      tax: this.taxes.tax,
-      total: total
+  data: function data() {
+    return {
+      customer_id: "",
+      pay_amount: "",
+      due: "",
+      paidby: "",
+      products: [],
+      categories: "",
+      productsByCat: [],
+      searchTerm: "",
+      getsearchTerm: "",
+      customers: "",
+      errors: "",
+      carts: [],
+      taxes: ""
     };
-    axios.post("/api/posorder", data).then(function () {
-      Notification.success();
+  },
+  computed: {
+    filtersearch: function filtersearch() {
+      var _this2 = this;
 
-      _this6.$router.push({
-        name: "home"
+      return this.products.filter(function (product) {
+        return product.product_name.match(_this2.searchTerm);
       });
-    })["catch"](function (err) {
-      return console.log(err);
-    });
-  },
-  // End Cart Methods
-  allProduct: function allProduct() {
-    var _this7 = this;
+    },
+    getfiltersearch: function getfiltersearch() {
+      var _this3 = this;
 
-    axios.get("/api/product/").then(function (_ref3) {
-      var data = _ref3.data;
-      return _this7.products = data;
-    })["catch"](function (err) {
-      return console.log(err);
-    });
-  },
-  allCategory: function allCategory() {
-    var _this8 = this;
+      return this.productsByCat.filter(function (productsByCat) {
+        return productsByCat.product_name.match(_this3.getsearchTerm);
+      });
+    },
+    qty: function qty() {
+      var sum = 0;
 
-    axios.get("/api/category/").then(function (_ref4) {
-      var data = _ref4.data;
-      return _this8.categories = data;
-    })["catch"](function (err) {
-      return console.log(err);
-    });
-  },
-  allCustomer: function allCustomer() {
-    var _this9 = this;
+      for (var i = 0; i < this.carts.length; i++) {
+        sum += parseFloat(this.carts[i].prod_quantity);
+      }
 
-    axios.get("/api/customer/").then(function (_ref5) {
-      var data = _ref5.data;
-      return _this9.customers = data;
-    })["catch"](function (err) {
-      return console.log(err);
-    });
-  },
-  getProductsByCat: function getProductsByCat(id) {
-    var _this10 = this;
+      return sum;
+    },
+    subtotal: function subtotal() {
+      var sum = 0;
 
-    axios.get("/api/productsbycat/" + id).then(function (_ref6) {
-      var data = _ref6.data;
-      return _this10.productsByCat = data;
-    })["catch"](function (err) {
-      return console.log(err);
-    });
+      for (var i = 0; i < this.carts.length; i++) {
+        sum += parseFloat(this.carts[i].prod_quantity) * parseFloat(this.carts[i].prod_price);
+      }
+
+      return sum;
+    }
+  },
+  methods: {
+    // Cart Methods Here
+    AddToCart: function AddToCart(id) {
+      axios.get("/api/addtocart/" + id).then(function () {
+        Reload.$emit("AfterAdd");
+        Notification.cart_success();
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    },
+    getCartProduct: function getCartProduct() {
+      var _this4 = this;
+
+      axios.get("/api/cart").then(function (_ref) {
+        var data = _ref.data;
+        return _this4.carts = data;
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    },
+    removeItem: function removeItem(id) {
+      axios.get("/api/cart/remove/" + id).then(function () {
+        Reload.$emit("AfterAdd");
+        Notification.cart_delete();
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    },
+    increment: function increment(id) {
+      axios.get("/api/cart/increment/" + id).then(function () {
+        Reload.$emit("AfterAdd");
+        Notification.success();
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    },
+    decrement: function decrement(id) {
+      axios.get("/api/cart/decrement/" + id).then(function () {
+        Reload.$emit("AfterAdd");
+        Notification.success();
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    },
+    getTax: function getTax() {
+      var _this5 = this;
+
+      axios.get("/api/tax").then(function (_ref2) {
+        var data = _ref2.data;
+        return _this5.taxes = data;
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    },
+    posOrder: function posOrder() {
+      var _this6 = this;
+
+      var total = this.subtotal * this.taxes.tax / 100 + this.subtotal;
+      var data = {
+        qty: this.qty,
+        subtotal: this.subtotal,
+        customer_id: this.customer_id,
+        paidby: this.paidby,
+        pay_amount: this.pay_amount,
+        due: this.due,
+        tax: this.taxes.tax,
+        total: total
+      };
+      axios.post("/api/posorder", data).then(function () {
+        Notification.success();
+
+        _this6.$router.push({
+          name: "home"
+        });
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    },
+    // End Cart Methods
+    allProduct: function allProduct() {
+      var _this7 = this;
+
+      axios.get("/api/product/").then(function (_ref3) {
+        var data = _ref3.data;
+        return _this7.products = data;
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    },
+    allCategory: function allCategory() {
+      var _this8 = this;
+
+      axios.get("/api/category/").then(function (_ref4) {
+        var data = _ref4.data;
+        return _this8.categories = data;
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    },
+    allCustomer: function allCustomer() {
+      var _this9 = this;
+
+      axios.get("/api/customer/").then(function (_ref5) {
+        var data = _ref5.data;
+        return _this9.customers = data;
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    },
+    getProductsByCat: function getProductsByCat(id) {
+      var _this10 = this;
+
+      axios.get("/api/productsbycat/" + id).then(function (_ref6) {
+        var data = _ref6.data;
+        return _this10.productsByCat = data;
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    }
   }
-}), _created$created$data);
+});
 
 /***/ }),
 
@@ -5968,8 +5920,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -6278,14 +6228,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+/* harmony default export */ __webpack_exports__["default"] = ({
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   data: function data() {
     return {
       form: {
@@ -6337,19 +6285,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return _this2.errors = error.response.data.errors;
       });
     }
-  }
-}, "created", function created() {
-  var _this3 = this;
+  },
+  created: function created() {
+    var _this3 = this;
 
-  axios.get("/api/category").then(function (_ref) {
-    var data = _ref.data;
-    return _this3.categories = data;
-  });
-  axios.get("/api/supplier").then(function (_ref2) {
-    var data = _ref2.data;
-    return _this3.suppliers = data;
-  });
-}));
+    axios.get("/api/category").then(function (_ref) {
+      var data = _ref.data;
+      return _this3.categories = data;
+    });
+    axios.get("/api/supplier").then(function (_ref2) {
+      var data = _ref2.data;
+      return _this3.suppliers = data;
+    });
+  }
+});
 
 /***/ }),
 
@@ -6362,10 +6311,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var _created$data$created;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -6444,14 +6389,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = (_created$data$created = {
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+/* harmony default export */ __webpack_exports__["default"] = ({
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   data: function data() {
     return {
       form: {
@@ -6459,31 +6402,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       },
       errors: {}
     };
-  }
-}, _defineProperty(_created$data$created, "created", function created() {
-  var _this = this;
-
-  var id = this.$route.params.id;
-  axios.get("/api/product/" + id).then(function (_ref) {
-    var data = _ref.data;
-    return _this.form = data;
-  })["catch"](console.log("error"));
-}), _defineProperty(_created$data$created, "methods", {
-  StockUpdate: function StockUpdate() {
-    var _this2 = this;
+  },
+  created: function created() {
+    var _this = this;
 
     var id = this.$route.params.id;
-    axios.post("/api/stock/update/" + id, this.form).then(function () {
-      _this2.$router.push({
-        name: "stock"
-      });
+    axios.get("/api/product/" + id).then(function (_ref) {
+      var data = _ref.data;
+      return _this.form = data;
+    })["catch"](console.log("error"));
+  },
+  methods: {
+    StockUpdate: function StockUpdate() {
+      var _this2 = this;
 
-      Notification.success();
-    })["catch"](function (error) {
-      return _this2.errors = error.response.data.errors;
-    });
+      var id = this.$route.params.id;
+      axios.post("/api/stock/update/" + id, this.form).then(function () {
+        _this2.$router.push({
+          name: "stock"
+        });
+
+        Notification.success();
+      })["catch"](function (error) {
+        return _this2.errors = error.response.data.errors;
+      });
+    }
   }
-}), _created$data$created);
+});
 
 /***/ }),
 
@@ -6496,10 +6441,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var _created$data$created;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -6808,14 +6749,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = (_created$data$created = {
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+/* harmony default export */ __webpack_exports__["default"] = ({
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   data: function data() {
     return {
       form: {
@@ -6834,58 +6773,60 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       categories: {},
       suppliers: {}
     };
-  }
-}, _defineProperty(_created$data$created, "created", function created() {
-  var _this = this;
-
-  var id = this.$route.params.id;
-  axios.get("/api/product/" + id).then(function (_ref) {
-    var data = _ref.data;
-    return _this.form = data;
-  })["catch"](console.log("error")); // Category Collected
-
-  axios.get("/api/category/").then(function (_ref2) {
-    var data = _ref2.data;
-    return _this.categories = data;
-  }); // Supplier Collected
-
-  axios.get("/api/supplier/").then(function (_ref3) {
-    var data = _ref3.data;
-    return _this.suppliers = data;
-  });
-}), _defineProperty(_created$data$created, "methods", {
-  onFileSelected: function onFileSelected(event) {
-    var _this2 = this;
-
-    var file = event.target.files[0];
-
-    if (file.size > 1048770) {
-      Notification.image_validation();
-    } else {
-      var reader = new FileReader();
-
-      reader.onload = function (event) {
-        _this2.form.newphoto = event.target.result;
-      };
-
-      reader.readAsDataURL(file);
-    }
   },
-  productUpdate: function productUpdate() {
-    var _this3 = this;
+  created: function created() {
+    var _this = this;
 
     var id = this.$route.params.id;
-    axios.patch("/api/product/" + id, this.form).then(function () {
-      _this3.$router.push({
-        name: "product"
-      });
+    axios.get("/api/product/" + id).then(function (_ref) {
+      var data = _ref.data;
+      return _this.form = data;
+    })["catch"](console.log("error")); // Category Collected
 
-      Notification.success();
-    })["catch"](function (error) {
-      return _this3.errors = error.response.data.errors;
+    axios.get("/api/category/").then(function (_ref2) {
+      var data = _ref2.data;
+      return _this.categories = data;
+    }); // Supplier Collected
+
+    axios.get("/api/supplier/").then(function (_ref3) {
+      var data = _ref3.data;
+      return _this.suppliers = data;
     });
+  },
+  methods: {
+    onFileSelected: function onFileSelected(event) {
+      var _this2 = this;
+
+      var file = event.target.files[0];
+
+      if (file.size > 1048770) {
+        Notification.image_validation();
+      } else {
+        var reader = new FileReader();
+
+        reader.onload = function (event) {
+          _this2.form.newphoto = event.target.result;
+        };
+
+        reader.readAsDataURL(file);
+      }
+    },
+    productUpdate: function productUpdate() {
+      var _this3 = this;
+
+      var id = this.$route.params.id;
+      axios.patch("/api/product/" + id, this.form).then(function () {
+        _this3.$router.push({
+          name: "product"
+        });
+
+        Notification.success();
+      })["catch"](function (error) {
+        return _this3.errors = error.response.data.errors;
+      });
+    }
   }
-}), _created$data$created);
+});
 
 /***/ }),
 
@@ -6898,8 +6839,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -6992,14 +6931,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+/* harmony default export */ __webpack_exports__["default"] = ({
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   data: function data() {
     return {
       products: [],
@@ -7050,10 +6987,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       });
     }
+  },
+  created: function created() {
+    this.allProduct();
   }
-}, "created", function created() {
-  this.allProduct();
-}));
+});
 
 /***/ }),
 
@@ -7066,8 +7004,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -7157,14 +7093,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+/* harmony default export */ __webpack_exports__["default"] = ({
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   data: function data() {
     return {
       products: [],
@@ -7191,10 +7125,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return console.log(err);
       });
     }
+  },
+  created: function created() {
+    this.allProduct();
   }
-}, "created", function created() {
-  this.allProduct();
-}));
+});
 
 /***/ }),
 
@@ -7207,10 +7142,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var _created$data$created;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -7400,14 +7331,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = (_created$data$created = {
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+/* harmony default export */ __webpack_exports__["default"] = ({
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   data: function data() {
     return {
       form: {
@@ -7418,33 +7347,35 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       },
       errors: {}
     };
-  }
-}, _defineProperty(_created$data$created, "created", function created() {
-  var _this = this;
-
-  var id = this.$route.params.id;
-  axios.get("/api/employee/" + id).then(function (_ref) {
-    var data = _ref.data;
-    return _this.form = data;
-  })["catch"](function (err) {
-    return console.log(err);
-  });
-}), _defineProperty(_created$data$created, "methods", {
-  SalaryPaid: function SalaryPaid() {
-    var _this2 = this;
+  },
+  created: function created() {
+    var _this = this;
 
     var id = this.$route.params.id;
-    axios.post("/api/salary/paid/" + id, this.form).then(function () {
-      _this2.$router.push({
-        name: "employee-salary"
-      });
-
-      Notification.success();
-    })["catch"](function (error) {
-      return _this2.errors = error.response.data.errors;
+    axios.get("/api/employee/" + id).then(function (_ref) {
+      var data = _ref.data;
+      return _this.form = data;
+    })["catch"](function (err) {
+      return console.log(err);
     });
+  },
+  methods: {
+    SalaryPaid: function SalaryPaid() {
+      var _this2 = this;
+
+      var id = this.$route.params.id;
+      axios.post("/api/salary/paid/" + id, this.form).then(function () {
+        _this2.$router.push({
+          name: "employee-salary"
+        });
+
+        Notification.success();
+      })["catch"](function (error) {
+        return _this2.errors = error.response.data.errors;
+      });
+    }
   }
-}), _created$data$created);
+});
 
 /***/ }),
 
@@ -7457,10 +7388,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var _created$data$created;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -7652,14 +7579,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = (_created$data$created = {
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+/* harmony default export */ __webpack_exports__["default"] = ({
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   data: function data() {
     return {
       form: {
@@ -7671,33 +7596,35 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       },
       errors: {}
     };
-  }
-}, _defineProperty(_created$data$created, "created", function created() {
-  var _this = this;
-
-  var id = this.$route.params.id;
-  axios.get("/api/salary/edit/" + id).then(function (_ref) {
-    var data = _ref.data;
-    return _this.form = data;
-  })["catch"](function (err) {
-    return console.log(err);
-  });
-}), _defineProperty(_created$data$created, "methods", {
-  SalaryUpdate: function SalaryUpdate() {
-    var _this2 = this;
+  },
+  created: function created() {
+    var _this = this;
 
     var id = this.$route.params.id;
-    axios.post("/api/salary/update/" + id, this.form).then(function () {
-      _this2.$router.push({
-        name: "salary"
-      });
-
-      Notification.success();
-    })["catch"](function (error) {
-      return _this2.errors = error.response.data.errors;
+    axios.get("/api/salary/edit/" + id).then(function (_ref) {
+      var data = _ref.data;
+      return _this.form = data;
+    })["catch"](function (err) {
+      return console.log(err);
     });
+  },
+  methods: {
+    SalaryUpdate: function SalaryUpdate() {
+      var _this2 = this;
+
+      var id = this.$route.params.id;
+      axios.post("/api/salary/update/" + id, this.form).then(function () {
+        _this2.$router.push({
+          name: "salary"
+        });
+
+        Notification.success();
+      })["catch"](function (error) {
+        return _this2.errors = error.response.data.errors;
+      });
+    }
   }
-}), _created$data$created);
+});
 
 /***/ }),
 
@@ -7710,8 +7637,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -7790,14 +7715,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+/* harmony default export */ __webpack_exports__["default"] = ({
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   data: function data() {
     return {
       employees: [],
@@ -7822,10 +7745,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return _this2.employees = data;
       })["catch"]();
     }
+  },
+  created: function created() {
+    this.allEmployee();
   }
-}, "created", function created() {
-  this.allEmployee();
-}));
+});
 
 /***/ }),
 
@@ -7838,8 +7762,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -7908,14 +7830,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+/* harmony default export */ __webpack_exports__["default"] = ({
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   data: function data() {
     return {
       salaries: [],
@@ -7940,10 +7860,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return _this2.salaries = data;
       })["catch"]();
     }
+  },
+  created: function created() {
+    this.allSalary();
   }
-}, "created", function created() {
-  this.allSalary();
-}));
+});
 
 /***/ }),
 
@@ -7956,8 +7877,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -8032,14 +7951,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+/* harmony default export */ __webpack_exports__["default"] = ({
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   data: function data() {
     return {
       salaries: [],
@@ -8067,10 +7984,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return _this2.errors = error.response.data.errors;
       });
     }
+  },
+  created: function created() {
+    this.viewSalary();
   }
-}, "created", function created() {
-  this.viewSalary();
-}));
+});
 
 /***/ }),
 
@@ -8265,13 +8183,11 @@ __webpack_require__.r(__webpack_exports__);
       errors: {}
     };
   },
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   methods: {
     onFileSelected: function onFileSelected(event) {
       var _this = this;
@@ -8317,10 +8233,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var _created$data$created;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -8502,14 +8414,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = (_created$data$created = {
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+/* harmony default export */ __webpack_exports__["default"] = ({
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   data: function data() {
     return {
       form: {
@@ -8523,50 +8433,52 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       },
       errors: {}
     };
-  }
-}, _defineProperty(_created$data$created, "created", function created() {
-  var _this = this;
-
-  var id = this.$route.params.id;
-  axios.get("/api/supplier/" + id).then(function (_ref) {
-    var data = _ref.data;
-    return _this.form = data;
-  })["catch"](function (err) {
-    return console.log(err.response.data.message);
-  });
-}), _defineProperty(_created$data$created, "methods", {
-  onFileSelected: function onFileSelected(event) {
-    var _this2 = this;
-
-    var file = event.target.files[0];
-
-    if (file.size > 1048770) {
-      Notification.image_validation();
-    } else {
-      var reader = new FileReader();
-
-      reader.onload = function (event) {
-        _this2.form.newphoto = event.target.result;
-      };
-
-      reader.readAsDataURL(file);
-    }
   },
-  supplierUpdate: function supplierUpdate() {
-    var _this3 = this;
+  created: function created() {
+    var _this = this;
 
     var id = this.$route.params.id;
-    axios.patch("/api/supplier/" + id, this.form).then(function () {
-      _this3.$router.push({
-        name: "supplier"
-      });
-
-      Notification.success();
-    })["catch"](function (error) {
-      return _this3.errors = error.response.data.errors;
+    axios.get("/api/supplier/" + id).then(function (_ref) {
+      var data = _ref.data;
+      return _this.form = data;
+    })["catch"](function (err) {
+      return console.log(err.response.data.message);
     });
+  },
+  methods: {
+    onFileSelected: function onFileSelected(event) {
+      var _this2 = this;
+
+      var file = event.target.files[0];
+
+      if (file.size > 1048770) {
+        Notification.image_validation();
+      } else {
+        var reader = new FileReader();
+
+        reader.onload = function (event) {
+          _this2.form.newphoto = event.target.result;
+        };
+
+        reader.readAsDataURL(file);
+      }
+    },
+    supplierUpdate: function supplierUpdate() {
+      var _this3 = this;
+
+      var id = this.$route.params.id;
+      axios.patch("/api/supplier/" + id, this.form).then(function () {
+        _this3.$router.push({
+          name: "supplier"
+        });
+
+        Notification.success();
+      })["catch"](function (error) {
+        return _this3.errors = error.response.data.errors;
+      });
+    }
   }
-}), _created$data$created);
+});
 
 /***/ }),
 
@@ -8579,8 +8491,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -8667,14 +8577,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
-  created: function created() {
-    if (!User.loggedIn()) {
-      this.$router.push({
-        name: "/"
-      });
-    }
-  },
+/* harmony default export */ __webpack_exports__["default"] = ({
+  // created() {
+  //     if (!User.loggedIn()) {
+  //         this.$router.push({ name: "/" });
+  //     }
+  // },
   data: function data() {
     return {
       suppliers: [],
@@ -8727,10 +8635,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       });
     }
+  },
+  created: function created() {
+    this.allsupplier();
   }
-}, "created", function created() {
-  this.allsupplier();
-}));
+});
 
 /***/ }),
 
